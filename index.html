@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Concentration Matching Game</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <h1>Concentration Matching Game</h1>
+
+  <div class="header_score">
+    <div id="stars">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+    </div>
+    <div id="moves">
+      <span id="numOfMoves">0</span> Moves
+    </div>
+    <div id="restartButton">
+      <i class="fas fa-sync"></i>
+    </div>
+  </div>
+  <div class="matchingBoard">
+    <div id="card_1" class="flip-container">
+      <div class="card">
+        <div class="front">
+          <span class="fa-stack fa-6x">
+            <i class="fas fa-square fa-stack-2x"></i>
+          </span>
+        </div>
+        <div class="back">
+          <span class="fa-stack fa-6x">
+            <i class="fas fa-square fa-stack-2x"></i>
+            <i class="fas fa-camera fa-stack-1x" style="color:Tomato"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="code.js"></script>

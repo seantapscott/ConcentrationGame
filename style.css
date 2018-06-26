@@ -1,0 +1,31 @@
+.flip-container{
+  /* Transform Begin */
+  width:200px;
+  height:200px;
+  position:relative;
+  perspective:600px;
+  /* Transform End */
+}
+
+.card{
+  width:100%;
+  height:100%;
+  position:absolute;
+  transform-style:preserve-3d;
+  transition:transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor:pointer;
+}
+.card div{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility: hidden;
+}
+.card .back{
+  transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+}
+.card.flipped{
+  transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+}
