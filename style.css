@@ -1,3 +1,10 @@
+.matchingBoard{
+  display:table;
+}
+.row{
+  display:table-row;
+}
+
 .flip-container{
   /* Transform Begin */
   width:200px;
@@ -5,6 +12,7 @@
   position:relative;
   perspective:600px;
   /* Transform End */
+  display:table-cell;
 }
 
 .card{
@@ -12,7 +20,7 @@
   height:100%;
   position:absolute;
   transform-style:preserve-3d;
-  transition:transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition:transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor:pointer;
 }
 .card div{
@@ -28,4 +36,7 @@
 .card.flipped{
   transform:rotateY(180deg);
   -webkit-transform:rotateY(180deg);
+}
+.icon{
+  color:white;
 }
