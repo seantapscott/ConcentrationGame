@@ -19,13 +19,10 @@
 function shuffle(array) {
   //Fisher-Yates Shuffle
   let m = array.length, t, i;
-
   // While there remain elements to shuffle…
   while (m) {
-
     // Pick a remaining element…
     i = Math.floor(Math.random() * m--);
-
     // And swap it with the current element.
     t = array[m];
     array[m] = array[i];
@@ -35,7 +32,11 @@ function shuffle(array) {
 }
 
 let icons = ["fa-camera", "fa-camera", "fa-atlas","fa-atlas", "fa-cloud", "fa-cloud", "fa-code-branch", "fa-code-branch", "fa-coffee", "fa-coffee", "fa-cookie-bite", "fa-cookie-bite", "fa-dumbbell", "fa-dumbbell", "fa-seedling", "fa-seedling"]
-
+icons = shuffle(icons);
+for (let i=0; i<17; i++){
+  const iconDOMSelector = `#card_${i+1} .icon`;
+  $(iconDOMSelector).toggleClass(icons[i]);
+};
 $('.flip-container .card').on('click', function(){
   $(this).toggleClass('flipped');
 });

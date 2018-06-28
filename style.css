@@ -1,5 +1,6 @@
 .matchingBoard{
   display:table;
+  width:90%;
 }
 .row{
   display:table-row;
@@ -39,4 +40,8 @@
 }
 .icon{
   color:white;
+}
+/* Overriding fa-stack position settings*/
+.fa-stack{
+  position:static;
 }
