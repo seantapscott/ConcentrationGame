@@ -31,11 +31,7 @@ function shuffle(array) {
   return array;
 }
 function flipElements(element1, element2){
-  console.log('flipElements function');
-  console.log(element1);
-  console.log(element2);
   window.setTimeout(function(){
-    console.log('timeout');
     element1.toggleClass('flipped');
     element2.toggleClass('flipped');
   },2000);
@@ -60,28 +56,18 @@ let moveCounter = 0;
 $('.flip-container .card').on('click', function(){
   // Display Back of the card if not already flipped
   // Boolean test // console.log($(this).hasClass('flipped') == false);
-  console.log($(this).parent().attr("id"));
   if ($(this).hasClass('flipped') == false) {
-    console.log('Primary flip.');
     $(this).toggleClass('flipped');
     activeCardsCounter++;
     if (activeCardsCounter === 2){
       moveCounter++;
-      console.log(otherActiveCard);
-      console.log(otherActiveCard.find("i.icon").attr("class"));
-      console.log($(this).find("i.icon").attr("class"));
       if ($(this).find("i.icon").attr("class") === otherActiveCard.find("i.icon").attr("class")){
-        console.log("You found a match");
+        //console.log("You found a match");
       } else {
         flipElements($(this), otherActiveCard);
       };
       activeCardsCounter=0;
     };
-      otherActiveCard = $(this);
-
+    otherActiveCard = $(this);
   };
-  console.log($(this));
-
-  console.log(otherActiveCard);
-
 });
