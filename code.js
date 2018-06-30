@@ -17,7 +17,7 @@
 
 */
 function shuffle(array) {
-  //Fisher-Yates Shuffle
+  //Fisher-Yates Shuffle from https://bost.ocks.org/mike/shuffle/
   let m = array.length, t, i;
   // While there remain elements to shuffle…
   while (m) {
@@ -30,13 +30,58 @@ function shuffle(array) {
   }
   return array;
 }
-
+function flipElements(element1, element2){
+  console.log('flipElements function');
+  console.log(element1);
+  console.log(element2);
+  window.setTimeout(function(){
+    console.log('timeout');
+    element1.toggleClass('flipped');
+    element2.toggleClass('flipped');
+  },2000);
+  //element1.toggleClass('flipped');
+  //element2.toggleClass('flipped');
+}
+/* --------------------- Code Start ------------------------------------------*/
+/* -- Initialization -- */
+//Initialize the icons selected.  Need two of each chosen icons, 16 total. https://fontawesome.com/cheatsheet
 let icons = ["fa-camera", "fa-camera", "fa-atlas","fa-atlas", "fa-cloud", "fa-cloud", "fa-code-branch", "fa-code-branch", "fa-coffee", "fa-coffee", "fa-cookie-bite", "fa-cookie-bite", "fa-dumbbell", "fa-dumbbell", "fa-seedling", "fa-seedling"]
 icons = shuffle(icons);
-for (let i=0; i<17; i++){
+for (let i=0; i<16; i++){
   const iconDOMSelector = `#card_${i+1} .icon`;
+  // Toggle the randomized icons onto the backs of the cards.
   $(iconDOMSelector).toggleClass(icons[i]);
 };
+
+/* -- Game Logic Start -- */
+let activeCardsCounter=0;
+let otherActiveCard;
+let moveCounter = 0;
 $('.flip-container .card').on('click', function(){
-  $(this).toggleClass('flipped');
+  // Display Back of the card if not already flipped
+  // Boolean test // console.log($(this).hasClass('flipped') == false);
+  console.log($(this).parent().attr("id"));
+  if ($(this).hasClass('flipped') == false) {
+    console.log('Primary flip.');
+    $(this).toggleClass('flipped');
+    activeCardsCounter++;
+    if (activeCardsCounter === 2){
+      moveCounter++;
+      console.log(otherActiveCard);
+      console.log(otherActiveCard.find("i.icon").attr("class"));
+      console.log($(this).find("i.icon").attr("class"));
+      if ($(this).find("i.icon").attr("class") === otherActiveCard.find("i.icon").attr("class")){
+        console.log("You found a match");
+      } else {
+        flipElements($(this), otherActiveCard);
+      };
+      activeCardsCounter=0;
+    };
+      otherActiveCard = $(this);
+
+  };
+  console.log($(this));
+
+  console.log(otherActiveCard);
+
 });
