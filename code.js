@@ -38,6 +38,16 @@ function flipElements(element1, element2){
   //element1.toggleClass('flipped');
   //element2.toggleClass('flipped');
 }
+function updateScoreInterface(moves){
+  $('#numOfMoves').text(moves);
+  console.log(moves);
+  console.log($('#stars').children('.fas:last-child'));
+  if (moves <= 8) {} else
+  if (moves <= 16) { $('#stars').children('.fas').eq(3).toggleClass("fas far");} else
+  if (moves <= 19) { $('#stars').children('.fas').eq(2).toggleClass("fas far");} else
+  if (moves <= 22) { $('#stars').children('.fas').eq(1).toggleClass("fas far");} else
+  {$('#stars').children('.fas').eq(0).toggleClass("fas far");};
+};
 /* --------------------- Code Start ------------------------------------------*/
 /* -- Initialization -- */
 //Initialize the icons selected.  Need two of each chosen icons, 16 total. https://fontawesome.com/cheatsheet
@@ -61,6 +71,7 @@ $('.flip-container .card').on('click', function(){
     activeCardsCounter++;
     if (activeCardsCounter === 2){
       moveCounter++;
+      updateScoreInterface(moveCounter);
       if ($(this).find("i.icon").attr("class") === otherActiveCard.find("i.icon").attr("class")){
         //console.log("You found a match");
       } else {
